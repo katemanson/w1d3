@@ -25,9 +25,10 @@ lines = ['Gyle Centre', 'Edinburgh Park', 'Murrayfield Stadium', 'Haymarket', 'P
     lines.last(1)
     lines.at(4)
     lines.at(-1)
-    lines.bsearch { |x| x == "Princes Street" }
-    lines.values_at(4)  #returns the array ["Princes Street"]
-    lines.values_at(-1)  #returns the array ["Princes Street"]
+    lines.bsearch { |stop| stop == "Princes Street" }
+    lines.values_at(4).join
+    lines.values_at(-1).join
+    lines.keep_if { |stop| stop == "Princes Street" }.join
 
 4. Work out the index position of 'Haymarket' 
 
@@ -157,11 +158,9 @@ lines = ['Gyle Centre', 'Edinburgh Park', 'Murrayfield Stadium', 'Haymarket', 'P
       
       favourite_evens = []
       favourites = users["Avril"][:favourite_numbers]
-
       for number in favourites
         favourite_evens << number if number%2 == 0
       end
-
       print favourite_evens
 
       #or
